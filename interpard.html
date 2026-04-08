@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNICO ANGLERS – Profesionalūs žvejybos reikmenys</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1e2d4a;
+    --navy-dark: #152038;
+    --blue-mid: #2d6a9f;
+    --blue-btn: #3a8cc4;
+    --blue-btn-hover: #2d7ab0;
+    --blue-light: #4fa8d8;
+    --white: #ffffff;
+    --gray-light: #f5f6f8;
+    --gray-mid: #e0e4ea;
+    --gray-text: #6b7a8d;
+    --text-dark: #1a2436;
+    --text-body: #3a4a5c;
+    --cart-badge: #e05a2b;
+  }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text-body);
+    background: var(--white);
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-mid);
+    padding: 0 40px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo svg { width: 48px; height: 48px; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text .brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: 1px;
+  }
+
+  .logo-text .sub {
+    font-size: 10px;
+    color: var(--blue-mid);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .search-wrap {
+    flex: 1;
+    max-width: 520px;
+    position: relative;
+  }
+
+  .search-wrap input {
+    width: 100%;
+    height: 42px;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 24px;
+    padding: 0 20px 0 44px;
+    font-size: 14px;
+    font-family: 'Barlow', sans-serif;
+    color: var(--text-dark);
+    background: var(--gray-light);
+    transition: border-color .2s, background .2s;
+    outline: none;
+  }
+
+  .search-wrap input:focus {
+    border-color: var(--blue-btn);
+    background: var(--white);
+  }
+
+  .search-wrap input::placeholder { color: var(--gray-text); }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-text);
+    pointer-events: none;
+  }
+
+  .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+
+  .cart-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--navy);
+    padding: 8px;
+    border-radius: 8px;
+    transition: background .15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cart-btn:hover { background: var(--gray-light); }
+
+  .cart-badge {
+    position: absolute;
+    top: 2px; right: 2px;
+    background: var(--cart-badge);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    display: none;
+  }
+
+  .cart-badge.visible { display: flex; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1a2d47 0%, #1e3a5f 40%, #2d5a7a 100%);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1400&q=60') center/cover no-repeat;
+    opacity: 0.25;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(42px, 6vw, 72px);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-btn);
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--blue-btn-hover);
+    transform: translateY(-1px);
+  }
+
+  /* ===== CATEGORY TABS ===== */
+  .catalog-section { padding: 0 40px 60px; }
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin: 36px 0 32px;
+  }
+
+  .tab-btn {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 28px;
+    border: 2px solid var(--navy);
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    background: var(--white);
+    color: var(--navy);
+    border-radius: 0;
+  }
+
+  .tab-btn:first-child { border-radius: 8px 0 0 8px; }
+  .tab-btn:last-child  { border-radius: 0 8px 8px 0; border-left: none; }
+
+  .tab-btn.active {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .tab-btn:not(.active):hover { background: var(--gray-light); }
+
+  /* ===== PRODUCT GRID ===== */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(30,45,74,0.12);
+  }
+
+  .product-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background: var(--gray-light);
+  }
+
+  .product-info {
+    padding: 16px 20px 20px;
+  }
+
+  .product-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .product-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .btn-cart {
+    width: 100%;
+    background: var(--blue-btn);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-cart:hover {
+    background: var(--blue-btn-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn-cart.added {
+    background: #2a9d5c;
+  }
+
+  /* ===== CART SIDEBAR ===== */
+  .cart-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 200;
+  }
+
+  .cart-overlay.open { display: block; }
+
+  .cart-sidebar {
+    position: fixed;
+    top: 0; right: -420px;
+    width: 400px;
+    height: 100vh;
+    background: var(--white);
+    z-index: 201;
+    display: flex;
+    flex-direction: column;
+    transition: right .3s ease;
+    box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+  }
+
+  .cart-sidebar.open { right: 0; }
+
+  .cart-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--gray-mid);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cart-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--navy);
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--gray-text);
+    font-size: 24px;
+    padding: 4px;
+    line-height: 1;
+    border-radius: 6px;
+    transition: background .15s, color .15s;
+  }
+
+  .close-btn:hover { background: var(--gray-light); color: var(--navy); }
+
+  .cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 24px;
+  }
+
+  .cart-empty {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--gray-text);
+    font-size: 15px;
+  }
+
+  .cart-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-mid);
+    align-items: center;
+  }
+
+  .cart-item img {
+    width: 64px; height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--gray-light);
+  }
+
+  .cart-item-info { flex: 1; }
+
+  .cart-item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .cart-item-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--navy);
+  }
+
+  .cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .qty-btn {
+    width: 28px; height: 28px;
+    border: 1.5px solid var(--gray-mid);
+    background: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+    transition: background .15s;
+  }
+
+  .qty-btn:hover { background: var(--gray-light); }
+
+  .qty-num { font-weight: 600; font-size: 15px; min-width: 20px; text-align: center; }
+
+  .remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #c0392b;
+    font-size: 18px;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background .15s;
+  }
+
+  .remove-btn:hover { background: #fdf0ee; }
+
+  .cart-footer {
+    padding: 20px 24px;
+    border-top: 1px solid var(--gray-mid);
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .cart-total span:last-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .btn-checkout {
+    width: 100%;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+
+  .btn-checkout:hover { background: var(--navy-dark); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.75);
+    padding: 52px 40px 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand .logo-text .brand { color: white; font-size: 20px; }
+  .footer-brand .logo-text .sub { color: var(--blue-light); }
+
+  .footer-desc {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .footer-contact-item svg { flex-shrink: 0; opacity: 0.7; }
+
+  .social-links { display: flex; gap: 12px; }
+
+  .social-link {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background .2s;
+  }
+
+  .social-link:hover { background: var(--blue-btn); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: var(--navy);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 300;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: transform .3s, opacity .3s;
+    pointer-events: none;
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ===== SEARCH HIGHLIGHT ===== */
+  .product-card.hidden { display: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 0 16px; }
+    .hero { padding: 40px 16px; }
+    .catalog-section { padding: 0 16px 40px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    footer { padding: 40px 16px 24px; }
+    .cart-sidebar { width: 100%; right: -100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="22" fill="#1e2d4a" stroke="#3a8cc4" stroke-width="1.5"/>
+      <ellipse cx="22" cy="24" rx="13" ry="7" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M35 24c3-2 5-5 4-8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="14" cy="23" r="1.5" fill="#4fa8d8"/>
+      <path d="M29 19l3-3M29 29l3 3" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <div class="logo-text">
+      <span class="brand">UNICO ANGLERS</span>
+      <span class="sub">ZvejybaLT</span>
+    </div>
+  </a>
+
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" id="searchInput" placeholder="Ieškoti produktų...">
+  </div>
+
+  <div class="header-right">
+    <button class="cart-btn" onclick="toggleCart()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <span id="cartCount" style="font-family:'Barlow Condensed';font-weight:700;font-size:15px;color:var(--navy);display:none"></span>
+      <div class="cart-badge" id="cartBadge">0</div>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Profesionalūs žvejybos reikmenys</h1>
+    <p>Aukščiausios kokybės spiningo ritės ir valai žvejybai</p>
+    <a href="#katalogas" class="btn-primary">
+      Apsipirkti dabar
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section" id="katalogas">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('rites')">Spiningo ritės</button>
+    <button class="tab-btn" onclick="switchTab('valai')">Valai žvejybai</button>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-text">
+        <span class="brand">UNICO ANGLERS</span>
+        <span class="sub">ZvejybaLT</span>
+      </div>
+      <p class="footer-desc">Profesionalūs žvejybos reikmenys Lietuvoje. Aukščiausia kokybė ir patikimumas.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontaktai</h4>
+      <div class="footer-contact-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 9.81a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +370 600 12345
+      </div>
+      <div class="footer-contact-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info@zvejybalt.lt
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Sekite mus</h4>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 UNICO ANGLERS. Visos teisės saugomos.
+  </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>🛒 Krepšelis</h2>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Krepšelis tuščias</div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Viso:</span>
+      <span id="cartTotal">0.00 €</span>
+    </div>
+    <button class="btn-checkout" onclick="checkout()">Pirkti dabar →</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const REEL_IMGS = [
+  'https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=600&q=75',
+  'https://images.unsplash.com/photo-1542224566-6e85f2e6772f?w=600&q=75',
+  'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=75',
+  'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=75',
+  'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=75',
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=75'
+];
+
+const ROD_IMGS = [
+  'https://images.unsplash.com/photo-1564419320461-6870880221ad?w=600&q=75',
+  'https://images.unsplash.com/photo-1516399677493-71be3e4b57d0?w=600&q=75',
+  'https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?w=600&q=75',
+  'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=600&q=75',
+  'https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=600&q=75',
+  'https://images.unsplash.com/photo-1478342684289-8a9e15c15b72?w=600&q=75'
+];
+
+const products = {
+  rites: [
+    { id:1, name:'Spiningo ritė Pro X1',       price:89.99,  img: REEL_IMGS[0] },
+    { id:2, name:'Spiningo ritė Elite 3000',    price:129.99, img: REEL_IMGS[1] },
+    { id:3, name:'Spiningo ritė Carbon Series', price:159.99, img: REEL_IMGS[2] },
+    { id:4, name:'Spiningo ritė Master 4000',   price:199.99, img: REEL_IMGS[3] },
+    { id:5, name:'Spiningo ritė Ultra Light',   price:79.99,  img: REEL_IMGS[4] },
+    { id:6, name:'Spiningo ritė Heavy Duty',    price:249.99, img: REEL_IMGS[5] },
+  ],
+  valai: [
+    { id:7,  name:'Valas Carbon Pro 2.7m',    price:119.99, img: ROD_IMGS[0] },
+    { id:8,  name:'Valas Telescopic 3.6m',    price:69.99,  img: ROD_IMGS[1] },
+    { id:9,  name:'Valas Feeder Master',       price:149.99, img: ROD_IMGS[2] },
+    { id:10, name:'Valas Spinning Ultra',      price:179.99, img: ROD_IMGS[3] },
+    { id:11, name:'Valas Match Pro 4.2m',      price:99.99,  img: ROD_IMGS[4] },
+    { id:12, name:'Valas Carp Extreme',        price:219.99, img: ROD_IMGS[5] },
+  ]
+};
+
+let cart = [];
+let currentTab = 'rites';
+
+function fmt(price) { return price.toFixed(2).replace('.', ',') + ' €'; }
+
+function renderProducts(tab, filter='') {
+  const grid = document.getElementById('productGrid');
+  const list = products[tab];
+  grid.innerHTML = list.map(p => {
+    const hidden = filter && !p.name.toLowerCase().includes(filter.toLowerCase()) ? 'hidden' : '';
+    return `
+    <div class="product-card ${hidden}" data-id="${p.id}">
+      <img class="product-img" src="${p.img}" alt="${p.name}" loading="lazy">
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-price">${fmt(p.price)}</div>
+        <button class="btn-cart" onclick="addToCart(${p.id}, this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          Į krepšelį
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach((b,i) => {
+    b.classList.toggle('active', (i===0 && tab==='rites') || (i===1 && tab==='valai'));
+  });
+  renderProducts(tab, document.getElementById('searchInput').value);
+}
+
+function addToCart(id, btn) {
+  const all = [...products.rites, ...products.valai];
+  const product = all.find(p => p.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  updateCartUI();
+  btn.classList.add('added');
+  btn.innerHTML = '✓ Pridėta!';
+  setTimeout(() => {
+    btn.classList.remove('added');
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Į krepšelį';
+  }, 1500);
+  showToast(`"${product.name}" pridėta į krepšelį`);
+}
+
+function updateCartUI() {
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  const count = cart.reduce((s, c) => s + c.qty, 0);
+  const badge = document.getElementById('cartBadge');
+  badge.textContent = count;
+  badge.classList.toggle('visible', count > 0);
+
+  const itemsEl = document.getElementById('cartItems');
+  const footerEl = document.getElementById('cartFooter');
+
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '<div class="cart-empty">Krepšelis tuščias</div>';
+    footerEl.style.display = 'none';
+  } else {
+    footerEl.style.display = 'block';
+    document.getElementById('cartTotal').textContent = fmt(total);
+    itemsEl.innerHTML = cart.map(c => `
+      <div class="cart-item">
+        <img src="${c.img}" alt="${c.name}">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${c.name}</div>
+          <div class="cart-item-price">${fmt(c.price)}</div>
+        </div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty(${c.id}, -1)">−</button>
+          <span class="qty-num">${c.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${c.id}, 1)">+</button>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${c.id})" title="Pašalinti">✕</button>
+      </div>
+    `).join('');
+  }
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  updateCartUI();
+}
+
+function removeItem(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCartUI();
+}
+
+function toggleCart() {
+  const overlay = document.getElementById('cartOverlay');
+  const sidebar = document.getElementById('cartSidebar');
+  overlay.classList.toggle('open');
+  sidebar.classList.toggle('open');
+}
+
+function checkout() {
+  showToast('Ačiū! Užsakymas priimtas. Susisieksime el. paštu.');
+  cart = [];
+  updateCartUI();
+  toggleCart();
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  const val = e.target.value;
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const name = card.querySelector('.product-name').textContent.toLowerCase();
+    card.classList.toggle('hidden', val.length > 0 && !name.includes(val.toLowerCase()));
+  });
+});
+
+renderProducts('rites');
+</script>
+</body>
+</html>
